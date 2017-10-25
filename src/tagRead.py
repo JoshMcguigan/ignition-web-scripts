@@ -6,7 +6,7 @@ def doPost(request,session):
 	tagValues = [{'value': qv.value, 'quality': qv.quality.toString(), 'timestamp': qv.timestamp} for qv in qualifiedValues]
 
 	tagData = {}
-	for i in range(len(tagPaths)):
-		tagData[tagPaths[i]] = tagValues[i]
+	for i, tagPath in enumerate(tagPaths):
+		tagData[tagPath] = tagValues[i]
         
 	return {'json': system.util.jsonEncode(tagData)}
